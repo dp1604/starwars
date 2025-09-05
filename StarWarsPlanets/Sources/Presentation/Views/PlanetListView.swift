@@ -16,32 +16,31 @@ struct PlanetListView: View {
     }
 
     var body: some View {
-        NavigationView {
-            VStack {
-                SearchBar(text: $searchText, onTextChanged: { query in
-                    viewModel.search(query: query)
-                })
-                .padding(.horizontal)
-
+        NavigationStack {
+            Group {
                 if viewModel.isLoading {
                     LoadingView()
                 } else if let error = viewModel.errorMessage {
-                    ErrorView(message: error, retryAction: { viewModel.loadAll() })
+                    ErrorView(message: error) { viewModel.loadAll() }
                 } else if viewModel.planets.isEmpty {
                     EmptyStateView(message: "No planets found")
                 } else {
                     List(viewModel.planets) { planet in
-                        NavigationLink(destination: PlanetDetailView(planet: planet)) {
+                        NavigationLink(value: planet) {
                             PlanetRowView(planet: planet)
                         }
+                        .accessibilityIdentifier("PlanetRow_\(planet.name)")
                     }
-                    .listStyle(PlainListStyle())
+                    .listStyle(.plain)
+                    .accessibilityIdentifier("PlanetsList")
                 }
             }
             .navigationTitle("Planets")
-        }
-        .onAppear {
-            viewModel.loadAll()
+            .searchable(text: $searchText)
+            .onChange(of: searchText) { viewModel.search(query: $0) }
+            .refreshable { viewModel.loadAll() }
+            .task { viewModel.loadAll() }
+            .navigationDestination(for: PlanetDTO.self) { PlanetDetailView(planet: $0) }
         }
     }
 }

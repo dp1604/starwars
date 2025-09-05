@@ -5,9 +5,9 @@
 	<key>UILaunchScreen</key>
 	<dict>
 		<key>UIColorName</key>
-		<string></string>
+		<string>splashColor</string>
 		<key>UIImageName</key>
-		<string>splash</string>
+		<string>splashScren</string>
 		<key>UIImageRespectsSafeAreaInsets</key>
 		<true/>
 		<key>UINavigationBar</key>

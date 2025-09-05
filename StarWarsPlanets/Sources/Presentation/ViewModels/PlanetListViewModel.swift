@@ -17,7 +17,6 @@ final class PlanetListViewModel: ObservableObject {
     private var fetchTask: Task<Void, Never>?
     private var searchTask: Task<Void, Never>?
 
-    // Keep a local copy of the full list for searching
     private var allPlanets: [PlanetDTO] = []
 
     init(repository: PlanetRepositoryProtocol) {
@@ -32,23 +31,23 @@ final class PlanetListViewModel: ObservableObject {
             isLoading = true
             defer { isLoading = false }
             do {
-                await repository.resetPagination()
                 let fetched = try await repository.fetchAllPlanets()
                 allPlanets = fetched
                 planets = fetched
+                errorMessage = nil
             } catch {
-                // Offline fallback
-                errorMessage = (error as? AppError)?.userMessage ?? "Failed to fetch from API, loading cached data..."
+                let appError = (error as? AppError) ?? .unknown
+
                 do {
-                    // Try to load cached planets from SwiftData
                     let cached = try await repository.fetchCachedPlanets(filter: nil)
                     allPlanets = cached
                     planets = cached
                     if cached.isEmpty {
-                        errorMessage = "No cached data available"
+                        errorMessage = "Failed to connect to internet.\nNo cached data available"
                     }
                 } catch {
-                    errorMessage = "Failed to load planets"
+                    let appError = (error as? AppError) ?? .unknown
+                    errorMessage = appError.userMessage
                 }
             }
         }
@@ -65,7 +64,6 @@ final class PlanetListViewModel: ObservableObject {
                 return
             }
 
-            // Perform in-memory filtering
             let lowercasedQuery = query.lowercased()
             planets = allPlanets.filter { $0.name.lowercased().contains(lowercasedQuery) }
         }

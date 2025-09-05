@@ -7,7 +7,6 @@
 
 import Foundation
 
-/// High-level application errors mapped for UI display
 enum AppError: Error {
     case network(NetworkError)
     case persistence

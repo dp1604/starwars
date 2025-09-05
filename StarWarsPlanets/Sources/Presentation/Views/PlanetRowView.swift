@@ -12,16 +12,19 @@ struct PlanetRowView: View {
 
     var body: some View {
         HStack(spacing: 16) {
-            RemoteImageView(url: URL(string: "https://picsum.photos/seed/\(planet.id.replacingOccurrences(of: "/", with: ""))/60/60"))
+            RemoteImageView(url: URL(string: "https://picsum.photos/seed/\(planet.seedSafe)/60/60"))
                 .frame(width: 60, height: 60)
                 .clipShape(RoundedRectangle(cornerRadius: 6))
 
             VStack(alignment: .leading, spacing: 4) {
                 Text(planet.name)
                     .font(.headline)
+                    .accessibilityIdentifier("PlanetName_\(planet.name)")
+                
                 Text("Climate: \(planet.climate)")
                     .font(.subheadline)
                     .foregroundColor(.secondary)
+                    .accessibilityIdentifier("PlanetClimate_\(planet.name)")
             }
 
             Spacer()

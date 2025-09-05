@@ -8,7 +8,5 @@
 protocol PlanetRepositoryProtocol {
     func fetchAllPlanets() async throws -> [PlanetDTO]
     func searchPlanets(query: String) async throws -> [PlanetDTO]
-    func fetchNextPage() async throws -> [PlanetDTO]
-    func resetPagination() async
     func fetchCachedPlanets(filter: String?) async throws -> [PlanetDTO]
 }

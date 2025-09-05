@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-/// A simple async remote image loader with in-memory + URLCache support
 struct RemoteImageView: View {
     @StateObject private var loader: ImageLoader
     private let placeholder: Image
@@ -27,7 +26,9 @@ struct RemoteImageView: View {
             if let image = loader.image {
                 Image(uiImage: image)
                     .resizable()
-                    .scaledToFit()
+                    .scaledToFill()
+                    .clipped()
+
             } else if loader.isLoading {
                 ProgressView()
             } else {
@@ -39,8 +40,6 @@ struct RemoteImageView: View {
         }
     }
 }
-
-// MARK: - Image Loader
 
 private class ImageLoader: ObservableObject {
     @Published var image: UIImage?

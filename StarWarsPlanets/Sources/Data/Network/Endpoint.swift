@@ -7,7 +7,6 @@
 
 import Foundation
 
-/// Represents an API endpoint with path and query items
 struct Endpoint {
     let path: String
     let queryItems: [URLQueryItem]
@@ -17,7 +16,6 @@ struct Endpoint {
         self.queryItems = queryItems
     }
 
-    /// Construct the full URL for the endpoint
     var url: URL {
         var components = URLComponents()
         components.scheme = "https"

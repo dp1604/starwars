@@ -8,7 +8,6 @@
 import Foundation
 import Alamofire
 
-/// Errors specific to networking layer
 enum NetworkError: Error {
     case invalidResponse
     case decodingFailed

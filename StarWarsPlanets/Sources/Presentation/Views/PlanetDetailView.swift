@@ -13,8 +13,8 @@ struct PlanetDetailView: View {
     var body: some View {
         ScrollView {
             VStack(spacing: 16) {
-                RemoteImageView(url: URL(string: "https://picsum.photos/seed/\(planet.id.replacingOccurrences(of: "/", with: ""))/400/250"))
-                    .frame(width: UIScreen.main.bounds.width)
+                RemoteImageView(url: URL(string: "https://picsum.photos/seed/\(planet.seedSafe)/400/250"))
+                    .frame(maxWidth: .infinity)
                     .shadow(radius: 5)
                     .padding(.top)
 
@@ -22,23 +22,20 @@ struct PlanetDetailView: View {
                     Text(planet.name)
                         .font(.largeTitle)
                         .fontWeight(.bold)
-
-                    HStack {
-                        Text("Climate:")
-                            .fontWeight(.semibold)
-                        Text(planet.climate)
-                    }
+                        .accessibilityIdentifier("PlanetName_\(planet.name)")
 
                     HStack {
                         Text("Orbital Period:")
                             .fontWeight(.semibold)
                         Text(planet.orbitalPeriod)
+                            .accessibilityIdentifier("OrbitalPeriod_\(planet.name)")
                     }
 
                     HStack {
                         Text("Gravity:")
                             .fontWeight(.semibold)
                         Text(planet.gravity)
+                            .accessibilityIdentifier("Gravity_\(planet.name)")
                     }
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
