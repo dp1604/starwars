@@ -11,13 +11,13 @@ import XCTest
 final class APIServiceTests: XCTestCase {
     func testFetchAllPlanetsSuccess() async throws {
         let mockNetwork = MockNetworkService()
-        mockNetwork.result = [PlanetDTO(name: "Dagobah", climate: "Murky", orbitalPeriod: "341", gravity: "N/A", url: "3")]
+        mockNetwork.result = [PlanetDTO(name: "Earth", climate: "Wet", orbitalPeriod: "365", gravity: "1", url: "1")]
         let service = APIService(network: mockNetwork)
 
         let planets = try await service.fetchAllPlanets()
 
         XCTAssertEqual(planets.count, 1)
-        XCTAssertEqual(planets.first?.name, "Dagobah")
+        XCTAssertEqual(planets.first?.name, "Earth")
     }
 
     func testFetchAllPlanetsFailure() async {

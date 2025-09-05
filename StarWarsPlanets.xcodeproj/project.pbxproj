@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		FFBDADF22E6A8FA700E0F656 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = FFBDADF12E6A8FA700E0F656 /* Alamofire */; };
+		FFBDAE3F2E6B95E000E0F656 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = FFBDAE3E2E6B95E000E0F656 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,6 +32,7 @@
 		FFBDADB52E6A888E00E0F656 /* StarWarsPlanets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StarWarsPlanets.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFBDADC42E6A889000E0F656 /* StarWarsPlanetsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StarWarsPlanetsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFBDADCE2E6A889000E0F656 /* StarWarsPlanetsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StarWarsPlanetsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FFBDAE3E2E6B95E000E0F656 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -93,6 +95,7 @@
 		FFBDADAC2E6A888E00E0F656 = {
 			isa = PBXGroup;
 			children = (
+				FFBDAE3E2E6B95E000E0F656 /* README.md */,
 				FFBDADB72E6A888E00E0F656 /* StarWarsPlanets */,
 				FFBDADC72E6A889000E0F656 /* StarWarsPlanetsTests */,
 				FFBDADD12E6A889000E0F656 /* StarWarsPlanetsUITests */,
@@ -236,6 +239,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFBDAE3F2E6B95E000E0F656 /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

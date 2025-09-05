@@ -69,7 +69,7 @@ private class ImageLoader: ObservableObject {
                     await MainActor.run { self.image = uiImage }
                 }
             } catch {
-                // silently fail, placeholder will be shown
+                // kept this empty so the load will silently fail, and placeholder will be shown
             }
             await MainActor.run { self.isLoading = false }
         }
