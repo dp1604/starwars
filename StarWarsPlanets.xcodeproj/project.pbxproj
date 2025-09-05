@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		FFBDADF22E6A8FA700E0F656 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = FFBDADF12E6A8FA700E0F656 /* Alamofire */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		FFBDADC52E6A889000E0F656 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -29,9 +33,22 @@
 		FFBDADCE2E6A889000E0F656 /* StarWarsPlanetsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StarWarsPlanetsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		FFBDAE242E6B070600E0F656 /* Exceptions for "StarWarsPlanets" folder in "StarWarsPlanets" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = FFBDADB42E6A888E00E0F656 /* StarWarsPlanets */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		FFBDADB72E6A888E00E0F656 /* StarWarsPlanets */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				FFBDAE242E6B070600E0F656 /* Exceptions for "StarWarsPlanets" folder in "StarWarsPlanets" target */,
+			);
 			path = StarWarsPlanets;
 			sourceTree = "<group>";
 		};
@@ -52,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFBDADF22E6A8FA700E0F656 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,6 +130,7 @@
 			);
 			name = StarWarsPlanets;
 			packageProductDependencies = (
+				FFBDADF12E6A8FA700E0F656 /* Alamofire */,
 			);
 			productName = StarWarsPlanets;
 			productReference = FFBDADB52E6A888E00E0F656 /* StarWarsPlanets.app */;
@@ -195,6 +214,9 @@
 			);
 			mainGroup = FFBDADAC2E6A888E00E0F656;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				FFBDADF02E6A8FA700E0F656 /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = FFBDADB62E6A888E00E0F656 /* Products */;
 			projectDirPath = "";
@@ -400,9 +422,11 @@
 				DEVELOPMENT_TEAM = 66J5BB497B;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = StarWarsPlanets/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Planets;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -428,9 +452,11 @@
 				DEVELOPMENT_TEAM = 66J5BB497B;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = StarWarsPlanets/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Planets;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -558,6 +584,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		FFBDADF02E6A8FA700E0F656 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.10.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		FFBDADF12E6A8FA700E0F656 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FFBDADF02E6A8FA700E0F656 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = FFBDADAD2E6A888E00E0F656 /* Project object */;
 }

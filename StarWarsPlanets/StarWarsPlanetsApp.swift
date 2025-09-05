@@ -10,23 +10,19 @@ import SwiftData
 
 @main
 struct StarWarsPlanetsApp: App {
-    var sharedModelContainer: ModelContainer = {
-        let schema = Schema([
-            Item.self,
-        ])
-        let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
-
-        do {
-            return try ModelContainer(for: schema, configurations: [modelConfiguration])
-        } catch {
-            fatalError("Could not create ModelContainer: \(error)")
-        }
-    }()
-
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentViewWrapper()
         }
-        .modelContainer(sharedModelContainer)
+        .modelContainer(for: PlanetEntity.self)
+    }
+}
+
+struct ContentViewWrapper: View {
+    @Environment(\.modelContext) private var context
+
+    var body: some View {
+        let repo = PlanetRepository(context: context)
+        PlanetListView(viewModel: PlanetListViewModel(repository: repo))
     }
 }
